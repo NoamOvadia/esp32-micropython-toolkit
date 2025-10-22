@@ -1,0 +1,9 @@
+{
+  "device_type": "ESP32",
+  "working_directory_path": "/Users/noam_ovadia/ESP32_MicroPython",
+  "auto_detect_port": true,
+  "com_port": "COM5",
+  "wifi_network_name": "",
+  "wifi_ssid": "",
+  "interface": "mpremote"
+}
