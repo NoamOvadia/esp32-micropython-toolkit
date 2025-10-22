@@ -1,1 +1,1 @@
-print("In boot ....... ")
+print("In boot")
