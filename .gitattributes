@@ -1,0 +1,22 @@
+* text eol=lf
+
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.pdf  binary
+*.zip  binary
+*.exe  binary
+*.dll  binary
+*.pyc  binary
+
+*.py   text eol=lf
+*.c    text eol=lf
+*.cpp  text eol=lf
+*.h    text eol=lf
+*.ino  text eol=lf
+*.js   text eol=lf
+*.ts   text eol=lf
+*.html text eol=lf
+*.css  text eol=lf
+*.md   text eol=lf
