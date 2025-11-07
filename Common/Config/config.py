@@ -1,13 +1,14 @@
 import json
 import os
 
-DEVICE_TYPE = 'device_type'
-WIFI_NETWORK_NAME = 'wifi_network_name'
-COM_PORT = 'com_port'
-WIFI_SSID = 'wifi_ssid'
+DEVICE_TYPE = "device_type"
+WIFI_NETWORK_NAME = "wifi_network_name"
+COM_PORT = "com_port"
+WIFI_SSID = "wifi_ssid"
 WORKING_DIRECTORY_PATH = "working_directory_path"
 AUTO_DETECT_PORT = "auto_detect_port"
 COMMON_INTERFACE = "interface"
+AUTO_DETECT_DIRECTORY_PATH = "auto_detect_directory_path"
 
 def get_common_device_config():
     # Get the directory of the current script and build the path to the JSON file
@@ -44,5 +45,10 @@ def get_common_auto_detect_port() -> bool:
 
 def get_common_interface() -> str:
     return device_config.get(COMMON_INTERFACE)
+
+
+def get_common_auto_detect_directory_path() -> bool:
+    return device_config.get(AUTO_DETECT_DIRECTORY_PATH)
+
 
 device_config = get_common_device_config()

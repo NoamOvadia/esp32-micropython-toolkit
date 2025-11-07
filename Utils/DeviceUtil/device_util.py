@@ -1,7 +1,7 @@
 import machine
 import sys
 import esp32
-
+import gc
 
 class DeviceUtil:
     """ESP32-S3 Chip using built-in functions"""
@@ -163,21 +163,17 @@ class DeviceUtil:
 
 
 def print_chip_info():
-    """Quick function to print chip info"""
     DeviceUtil.print_info()
 
 def get_chip_id():
-    """Quick function to get chip ID"""
     return DeviceUtil.get_chip_id_hex()
 
 def get_free_memory():
-    """Quick function to get free memory in KB"""
-    import gc
+    """Get free memory in KB"""
     gc.collect()
     return gc.mem_free() // 1024
 
 def get_reset_reason():
-    """Quick function to get reset reason"""
     _, name = DeviceUtil.get_reset_cause()
     return name
 

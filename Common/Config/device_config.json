@@ -1,6 +1,7 @@
 {
-  "device_type": "ESP32",
-  "working_directory_path": "/Users/noam_ovadia/esp32-micropython-toolkit",
+  "device_type": "ESP32_S3",
+  "auto_detect_directory_path": true,
+  "working_directory_path": "",
   "auto_detect_port": true,
   "com_port": "COM5",
   "wifi_network_name": "",

@@ -32,25 +32,40 @@ def execute_command(cmd:list):
         print("Error uploading file:")
         print(e.stderr)
 
+def get_all_files(directory_path:str):
+    """Get all files recursively from a directory"""
+    all_files = []
+
+    for root, dirs, files in os.walk(directory_path):
+        for file in files:
+            full_path = os.path.join(root, file)
+            all_files.append(full_path)
+
+    return all_files
+
+def detect_path_separator(path:str):
+    """
+    Detects the path separator used in a given path string.
+    Returns the separator found: '\\', '/', or None
+    """
+    if '\\' in path:
+        return '\\'
+    elif '/' in path:
+        return '/'
+    else:
+        return None
+
 def get_boot_and_main_path(dir_path:str):
-
-    def get_all_files(directory_path):
-        """Get all files recursively from a directory"""
-        all_files = []
-
-        for root, dirs, files in os.walk(directory_path):
-            for file in files:
-                full_path = os.path.join(root, file)
-                all_files.append(full_path)
-
-        return all_files
 
     file_list = get_all_files(dir_path)
     boot_path, main_path = None, None
     is_main = False
     is_boot = False
+
+    separator = detect_path_separator(dir_path)
+
     for path in file_list:
-        file_name = str(path).split('/')[-1]
+        file_name = str(path).split(separator)[-1]
         if not is_main and file_name == "main.py":
             main_path = path
             is_main = True
@@ -69,11 +84,15 @@ def is_port_free(port):
         return False
 
 def connect_to_esp_flow():
-    working_directory = config.get_common_working_directory_path()
+
+    is_auto_detection_dir_path = config.get_common_auto_detect_directory_path()
+
+    print('Auto detection working directory mode')
+    working_directory = os.getcwd() if is_auto_detection_dir_path else config.get_common_working_directory_path()
     print(f'Working directory path: {working_directory}')
 
     is_auto_detection_port = config.get_common_auto_detect_port()
-    print(f'Port detection mode: {"Auto detection port" if is_auto_detection_port else "Manually detection port"}')
+    print(f'Port detection port mode: {"Auto detection port" if is_auto_detection_port else "Manually detection port"}')
 
     interface = config.get_common_interface()
     print(f'Interface: {interface}')
