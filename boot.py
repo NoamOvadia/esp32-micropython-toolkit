@@ -4,5 +4,3 @@ from Common.Const.colors_map import GREEN
 
 BuiltInLED.blink(7, 0.04, GREEN)
 DeviceUtil.print_info()
-
-# Implement your code here
