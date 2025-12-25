@@ -1,4 +1,5 @@
 class Logger:
+
     INFO = 'INFO'
     DEBUG = 'DEBUG'
     WARNING = 'WARNING'
